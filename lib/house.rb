@@ -42,4 +42,25 @@ class House
     details['address'] = address
     details
   end
+
+  def price_per_square_foot
+    (price.to_f / area.round).round(2)
+  end
+
+  def rooms_sorted_by_area
+    sorted_array = @rooms.sort_by { |room| room.area }
+    sorted_array.reverse
+  end
+
+  def rooms_by_category
+    rooms_collection = Hash.new
+    @rooms.map do |room|
+      if rooms_collection.key?(room.category) == true
+        rooms_collection[room.category] << room
+      else
+        rooms_collection[room.category] = [room]
+      end
+    end
+    rooms_collection
+  end
 end
