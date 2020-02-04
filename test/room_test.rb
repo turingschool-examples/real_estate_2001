@@ -25,6 +25,7 @@ class RoomTest < Minitest::Test
   end
 
   def test_it_is_not_painted_by_default
-    skip
+
+    assert_equal false, @room1.is_painted?
   end
 end
