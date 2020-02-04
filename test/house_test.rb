@@ -40,4 +40,13 @@ class HouseTest < Minitest::Test
     house_2 =  House.new("$600000", "123 sugar lane")
     assert house_2.above_market_price?
   end
+
+  def test_house_can_list_rooms_from_category
+    @house.add_room(@room_1)
+    @house.add_room(@room_2)
+    @house.add_room(@room_3)
+    @house.add_room(@room_4)
+    assert_equal ([@room_1, @room_2]), @house.rooms_from_category(:bedroom)
+    assert_equal ([@room_4]), @house.rooms_from_category(:basement)
+  end
 end
