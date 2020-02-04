@@ -20,7 +20,10 @@ class HouseTest < Minitest::Test
 
   def test_it_has_an_address
     assert_equal "123 sugar lane", @house.address
+  end
 
+  def test_it_start_with_no_rooms
+    assert_equal [], @house.rooms
   end
 
 end
