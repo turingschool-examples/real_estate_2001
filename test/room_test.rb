@@ -24,4 +24,10 @@ class RoomTest < Minitest::Test
     room = Room.new(:bedroom, 10, '13')
     assert_equal false, room.is_painted?
   end
+
+  def test_it_gets_painted
+    room = Room.new(:bedroom, 10, '13')
+    room.paint
+    assert_equal true, room.is_painted?
+  end
 end
