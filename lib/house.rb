@@ -39,4 +39,15 @@ class House
     area_sum
   end
 
+  def price_per_square_foot
+    price_per_square = 0.0
+    price_per_square = @price.to_f / area.to_f
+    price_per_square.round(2)
+  end
+
+
+
+
+
+
 end
