@@ -19,4 +19,18 @@ class RoomTest < Minitest::Test
     assert_equal 130, room1.area
     assert_equal 180, room2.area
   end
+
+  def test_returns_painted_state
+    room1 = Room.new(:bedroom, 10, '13')
+
+    assert_equal false, room1.is_painted?    
+  end
 end
+
+# pry(main)> room.is_painted?
+# #=> false
+#
+# pry(main)> room.paint
+#
+# pry(main)> room.is_painted?
+# #=> true
