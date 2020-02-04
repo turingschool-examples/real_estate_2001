@@ -20,13 +20,13 @@ attr_reader :price, :address, :rooms
   end
 
   def rooms_from_category(category)
-    rooms_by_category = []
+    rooms_category = []
     @rooms.each do |room|
       if room.category == category
-        rooms_by_category << room
+        rooms_category << room
       end
     end
-    rooms_by_category
+    rooms_category
   end
 
   def area
@@ -41,4 +41,22 @@ attr_reader :price, :address, :rooms
     details = {price: @price[1..-1].to_i, address: @address}
   end
 
+  def price_per_square_foot
+    (@price[1..-1].to_i / area.to_f).round(2)
+  end
+
+  def rooms_sorted_by_area
+      @rooms.sort_by { |room| -room.area }
+  end
+
+  def rooms_by_category
+      @rooms.sort_by { |room| room.category }
+  end
+
+
 end
+
+
+
+# pry(main)> house.rooms_by_category
+# #=> {:bedroom=>[#<Room:0x00007fccd29b5720...>, #<Room:0x00007fccd2985f48...>], :living_room=> [#<Room:0x00007fccd383c2d0...>], :basement=> [#<Room:0x00007fccd297dc30...>]}
