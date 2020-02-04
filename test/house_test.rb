@@ -121,7 +121,8 @@ class HouseTest < Minitest::Test
     house.add_room(room2)
     house.add_room(room3)
     house.add_room(room4)
+    list = {:bedroom=>[room1,room2], :living_room=>[room3], :basement=>[room4]}
 
-    assert_equal {:bedroom=>[room1,room2], :living_room=>}, house.rooms_by_category
+    assert_equal list, house.rooms_by_category
   end
 end

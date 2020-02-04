@@ -42,8 +42,7 @@ class House
   end
 
   def rooms_by_category
-    #still trying to figure this out. Almost there....
-    list_of_categories = nil
+    list_of_categories = []
     rooms.each do |room|
       list_of_categories << room.category
     end
@@ -51,6 +50,8 @@ class House
     list_of_rooms_by_category = {}
     list_of_categories.each do |category|
       list_of_rooms_by_category[category] = rooms_from_category(category)
+    end
+    list_of_rooms_by_category
   end
 
 
