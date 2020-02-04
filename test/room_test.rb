@@ -21,4 +21,9 @@ class RoomTest < Minitest::Test
     assert_equal 130, room1.area
     assert_equal 180, room2.area
   end
+
+  def test_is_painted
+
+  end
+
 end
