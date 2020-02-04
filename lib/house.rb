@@ -20,8 +20,11 @@ class House
   end
 
   def rooms_from_category(category)
-    require 'pry'; binding.pry
     rooms_from_category = @rooms.find_all { |room| room.category == category }
+  end
+
+  def area
+    @rooms.map { |room| room.area }.sum
   end
 
 end
