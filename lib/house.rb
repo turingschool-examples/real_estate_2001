@@ -1,11 +1,12 @@
 class House
 
-  attr_reader :address, :price, :rooms
+  attr_reader :address, :price, :rooms, :details
 
   def initialize(price_parameter, address_parameter)
     @price = price_parameter.delete_prefix('$').to_i
     @address = address_parameter
     @rooms = []
+    @details = {"price" => @price, "address" => @address}
   end
 
   def add_room(room)
@@ -37,7 +38,5 @@ class House
     end
     area_sum
   end
-
-
 
 end
