@@ -23,4 +23,9 @@ class HouseTest < Minitest::Test
     assert_equal [@room_1, @room_2], @house.rooms
   end
 
+  def test_it_knows_it_its_above_market_range
+
+    assert_equal false, @house.above_market_range?
+  end
+
 end
