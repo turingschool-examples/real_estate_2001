@@ -30,4 +30,16 @@ class House
     Hash.new
     {"price" => price, "address" => address}
   end
+
+  def price_per_square_foot
+    (price.to_f / area.to_f).round(2)
+  end
+
+  def rooms_sorted_by_area
+    own_area = {}
+    rooms.each do |room|
+      own_area[room] = room.area
+    end
+    own_area.keys.sort_by { |value| own_area[value] }.reverse
+  end
 end
