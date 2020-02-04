@@ -12,22 +12,22 @@ class HouseTest < Minitest::Test
   end
 
   def test_has_attributes
-    house = House.new("$400000", "123 sugar lane")
+    house1 = House.new("$400000", "123 sugar lane")
 
     assert_equal 400000, house.price
-    assert_equal "123 sugar lane", house.address
-    assert_equal [], house.rooms
+    assert_equal "123 sugar lane", house1.address
+    assert_equal [], house1.rooms
   end
 
   def test_can_add_rooms
-    room_1 = Room.new(:bedroom, 10, '13')
-    room_2 = Room.new(:bedroom, 11, '15')
+    room1 = Room.new(:bedroom, 10, '13')
+    room2 = Room.new(:bedroom, 11, '15')
     house = House.new("$400000", "123 sugar lane")
 
-    house.add_room(room_1)
-    house.add_room(room_2)
+    house1.add_room(room1)
+    house1.add_room(room2)
 
-    assert_equal [room_1, room_2], house.rooms
+    assert_equal [room1, room2], house.rooms
   end
 
   def test_returns_above_market_average
@@ -39,47 +39,47 @@ class HouseTest < Minitest::Test
   end
 
   def test_finds_rooms_from_category
-    room_1 = Room.new(:bedroom, 10, '13')
-    room_2 = Room.new(:bedroom, 11, '15')
-    room_3 = Room.new(:living_room, 25, '15')
-    room_4 = Room.new(:basement, 30, '41')
-    house = House.new("$400000", "123 sugar lane")
+    room1 = Room.new(:bedroom, 10, '13')
+    room2 = Room.new(:bedroom, 11, '15')
+    room3 = Room.new(:living_room, 25, '15')
+    room4 = Room.new(:basement, 30, '41')
+    house1 = House.new("$400000", "123 sugar lane")
 
-    house.add_room(room_1)
-    house.add_room(room_2)
-    house.add_room(room_3)
-    house.add_room(room_4)
+    house1.add_room(room1)
+    house1.add_room(room2)
+    house1.add_room(room3)
+    house1.add_room(room4)
 
-    assert_equal [room_1, room_2], house.rooms_from_category(:bedroom)
-    assert_equal [room_4], house.rooms_from_category(:basement)
+    assert_equal [room1, room2], house.rooms_from_category(:bedroom)
+    assert_equal [room4], house.rooms_from_category(:basement)
   end
 
   def test_calculates_house_area
-    room_1 = Room.new(:bedroom, 10, '13')
-    room_2 = Room.new(:bedroom, 11, '15')
-    room_3 = Room.new(:living_room, 25, '15')
-    room_4 = Room.new(:basement, 30, '41')
+    room1 = Room.new(:bedroom, 10, '13')
+    room2 = Room.new(:bedroom, 11, '15')
+    room3 = Room.new(:living_room, 25, '15')
+    room4 = Room.new(:basement, 30, '41')
     house = House.new("$400000", "123 sugar lane")
 
-    house.add_room(room_1)
-    house.add_room(room_2)
-    house.add_room(room_3)
-    house.add_room(room_4)
+    house1.add_room(room1)
+    house1.add_room(room2)
+    house1.add_room(room3)
+    house1.add_room(room4)
 
     assert_equal 1900, house.area
   end
 
   def test_returns_house_details
-    room_1 = Room.new(:bedroom, 10, '13')
-    room_2 = Room.new(:bedroom, 11, '15')
-    room_3 = Room.new(:living_room, 25, '15')
-    room_4 = Room.new(:basement, 30, '41')
-    house = House.new("$400000", "123 sugar lane")
+    room1 = Room.new(:bedroom, 10, '13')
+    room2 = Room.new(:bedroom, 11, '15')
+    room3 = Room.new(:living_room, 25, '15')
+    room4 = Room.new(:basement, 30, '41')
+    house1 = House.new("$400000", "123 sugar lane")
 
-    house.add_room(room_1)
-    house.add_room(room_2)
-    house.add_room(room_3)
-    house.add_room(room_4)
+    house1.add_room(room1)
+    house1.add_room(room2)
+    house1.add_room(room3)
+    house1.add_room(room4)
 
 
     expected_details = {
@@ -87,6 +87,6 @@ class HouseTest < Minitest::Test
       "address" => "123 sugar lane"
     }
 
-    assert_equal expected_details, house.details
+    assert_equal expected_details, house1.details
   end
 end
