@@ -26,4 +26,8 @@ class House
     return true if price > 500000
     false
   end
+
+  def rooms_from_category(category)
+    @rooms.find_all { |room| room.category == category }
+  end
 end
