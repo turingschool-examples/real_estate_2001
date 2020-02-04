@@ -33,7 +33,7 @@ class House
   end
 
   def rooms_sorted_by_area
-    @rooms.sort_by {|room| room.area}
+    @rooms.sort_by {|room| room.area}.reverse
   end
 
   def rooms_by_category
