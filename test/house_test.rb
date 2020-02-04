@@ -54,8 +54,14 @@ class HouseTest < Minitest::Test
     @house.add_room(@room_2)
     @house.add_room(@room_3)
     @house.add_room(@room_4)
-    
+
     assert_equal 1900, @house.area
+  end
+
+  def test_it_lists_house_details_as_hash
+
+    assert_equal Hash, @house.details.class
+    assert_equal ({"price" => 400000, "address" => "123 sugar lane"}), @house.details
   end
 
 end
