@@ -5,6 +5,9 @@ class House
     @address = address
   end
 
+  def price
+    @price.to_i
+  end
 
 
 
