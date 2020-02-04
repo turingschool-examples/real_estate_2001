@@ -19,4 +19,10 @@ class Room
       false
     end
   end
+
+  def paint
+    @paint_status = "painted"
+  end
+
+
 end
