@@ -60,36 +60,23 @@ class HouseTest < Minitest::Test
     assert_equal [room_1, room_2], house.rooms_from_category(:bedroom)
     assert_equal [room_4], house.rooms_from_category(:basement)
   end
+
+  def test_it_can_test_house_area
+    house = House.new("$400000", "123 sugar lane")
+
+    room_1 = Room.new(:bedroom, 10, '13')
+    room_2 = Room.new(:bedroom, 11, '15')
+    room_3 = Room.new(:living_room, 25, '15')
+    room_4 = Room.new(:basement, 30, '41')
+
+    house.add_room(room_1)
+    house.add_room(room_2)
+    house.add_room(room_3)
+    house.add_room(room_4)
+
+    assert_equal 1900, house.area
+  end
 end
 
-# pry(main)>
-# #=> #<Room:0x00007fccd29b5720...>
-#
-# pry(main)>
-# #=> #<Room:0x00007fccd2985f48...>
-#
-# pry(main)>
-# #=> #<Room:0x00007fccd383c2d0...>
-#
-# pry(main)>
-# #=> #<Room:0x00007fccd297dc30...>
-#
-# pry(main)>
-#
-# pry(main)>
-#
-# pry(main)>
-#
-# pry(main)>
-#
-# pry(main)>
-# #=> [#<Room:0x00007fccd29b5720...>, #<Room:0x00007fccd2985f48...>]
-#
-# pry(main)>
-# #=> [#<Room:0x00007fccd297dc30...>]
-#
-# pry(main)> house.area
-# #=> 1900
-#
 # pry(main)> house.details
 # #=> {"price" => 400000, "address" => "123 sugar lane"}
