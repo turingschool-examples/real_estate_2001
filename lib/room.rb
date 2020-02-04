@@ -9,8 +9,4 @@ class Room
   def area
     @length.to_f * @width.to_f
   end
-
-  def is_painted?
-    
-  end
 end
