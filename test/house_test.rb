@@ -30,6 +30,7 @@ class HouseTest < Minitest::Test
   end
 
   def test_rooms_added
+    skip
     house = House.new("$400000", "123 sugar lane")
     room_1 = Room.new(:bedroom, 10, '13')
     room_2 = Room.new(:bedroom, 11, '15')
@@ -39,11 +40,13 @@ class HouseTest < Minitest::Test
   end
 
   def test_above_market_average
+    skip
     house = House.new("$400000", "123 sugar lane")
     assert_equal false, house.above_market_average?
   end
 
   def test_rooms_from_category
+    skip
     house = House.new("$400000", "123 sugar lane")
     room_1 = Room.new(:bedroom, 10, '13')
     room_2 = Room.new(:bedroom, 11, '15')
@@ -59,6 +62,7 @@ class HouseTest < Minitest::Test
 
 
   def test_house_area
+    skip
     house = House.new("$400000", "123 sugar lane")
     room_1 = Room.new(:bedroom, 10, '13')
     room_2 = Room.new(:bedroom, 11, '15')
@@ -81,12 +85,7 @@ class HouseTest < Minitest::Test
     house.add_room(room_2)
     house.add_room(room_3)
     house.add_room(room_4)
-    assert_equal
-  end {"price" => 400000, "address" => "123 sugar lane"}, house.details
+    assert_equal {"price" => 400000, "address" => "123 sugar lane"}, house.details
+  end
 
 end
-
-
-
-#pry(main)> house.details
-#=> {"price" => 400000, "address" => "123 sugar lane"}

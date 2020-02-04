@@ -40,4 +40,10 @@ class House
     @total_area
   end
 
+  def details
+    house_details = {
+      "price" => @price,
+      "address" => @address,
+    }
+  end
 end
