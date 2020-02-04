@@ -33,6 +33,11 @@ class House
     end
     area_by_room.sum
   end
-end
 
-# room.area
+  def details
+    home_attributes = {}
+    home_attributes["price"] = price
+    home_attributes["address"] = address
+    home_attributes
+  end
+end

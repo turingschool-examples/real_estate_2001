@@ -55,8 +55,12 @@ class HouseTest < MiniTest::Test
     @house.add_room(@room_4)
     assert_equal 1900, @house.area
   end
-end
 
-# pry(main)> house.details
-# #=> {"price" => 400000, "address" => "123 sugar lane"}
-# ```
+  def test_all_house_details_can_be_retrieved
+    @house.add_room(@room_1)
+    @house.add_room(@room_2)
+    @house.add_room(@room_3)
+    @house.add_room(@room_4)
+    assert_equal ({"price" => 400000, "address" => "123 sugar lane"}), @house.details
+  end
+end
