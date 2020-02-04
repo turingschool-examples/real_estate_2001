@@ -25,4 +25,11 @@ attr_reader :price, :address, :rooms
     end
     ((@price.delete('$').to_i / house_total_square_feet.to_f)).round(2)
   end
+
+  def rooms_sorted_by_area
+    @rooms.sort! do |room|
+      room.area
+    end
+  end
+
 end
