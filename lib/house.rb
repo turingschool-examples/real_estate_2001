@@ -1,8 +1,8 @@
 class House
-  attr_reader :price
+  attr_reader :price, :address
 
-  def initialize(price, a)
+  def initialize(price, address)
     @price = price.gsub("$", "").to_i
-    @a = a
+    @address = address
   end
 end
