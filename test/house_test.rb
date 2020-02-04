@@ -8,6 +8,8 @@ class HouseTest < Minitest::Test
     @house = House.new("$400000", "123 sugar lane")
     @room_1 = Room.new(:bedroom, 10, '13')
     @room_2 = Room.new(:bedroom, 11, '15')
+    @room_3 = Room.new(:living_room, 25, '15')
+    @room_4 = Room.new(:basement, 30, '41')
   end
 
   def test_it_exists
@@ -35,6 +37,44 @@ class HouseTest < Minitest::Test
     @house.add_room(@room_2)
 
     assert_equal [@room_1, @room_2], @house.rooms
+  end
+
+  def test_it_is_above_market?
+    house2 = House.new("$800000", "456 hello avenue")
+
+    assert_equal false, @house.above_market?
+    assert_equal true, house2.above_market?
+  end
+
+  def test_it_can_calculate_house_price_per_square_foot
+    @house.add_room(@room_1)
+    @house.add_room(@room_2)
+    @house.add_room(@room_3)
+    @house.add_room(@room_4)
+
+    assert_equal 210.53, @house.price_per_square_foot
+  end
+
+  def test_it_can_sort_rooms_by_area
+    @house.add_room(@room_1)
+    @house.add_room(@room_2)
+    @house.add_room(@room_3)
+    @house.add_room(@room_4)
+
+    assert_equal [@room_4, @room_3, @room_2, @room_1], @house.rooms_sorted_by_area
+  end
+
+  def test_it_can_separate_rooms_by_category
+    @house.add_room(@room_1)
+    @house.add_room(@room_2)
+    @house.add_room(@room_3)
+    @house.add_room(@room_4)
+    rooms_by_category = {
+      :bedroom => [@room_1, @room_2],
+      :living_room => [@room_3],
+      :basement => [@room_4]}
+
+    assert_equal  rooms_by_category, @house.rooms_by_category
   end
 
 end
