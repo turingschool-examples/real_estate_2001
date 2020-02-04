@@ -32,4 +32,10 @@ attr_reader :price, :address, :rooms
     end
   end
 
+  def rooms_by_category
+    rooms_by_category = {}
+    @rooms.each do |room|
+      rooms_by_category[room.category] = [room]
+    end
+  end
 end
