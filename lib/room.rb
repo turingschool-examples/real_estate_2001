@@ -2,8 +2,8 @@ class Room
   attr_reader :category
   def initialize(category, length, width)
     @category = category
-    @length = 10
-    @width = width
+    @length = length.to_i
+    @width = width.to_i
   end
 
   def area
