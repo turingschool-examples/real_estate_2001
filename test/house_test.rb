@@ -32,7 +32,10 @@ class HouseTest < Minitest::Test
     @house.add_room(@room1)
     @house.add_room(@room2)
     assert_equal [@room1, @room2], @house.rooms
+  end
 
+  def test_it_can_be_below_market_average
+    assert_equal false, @house.above_market_average?
   end
 
 end

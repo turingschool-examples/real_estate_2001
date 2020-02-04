@@ -14,4 +14,8 @@ class House
     @rooms << room
   end
 
+  def above_market_average?
+    self.price > 5000000
+  end
+
 end
