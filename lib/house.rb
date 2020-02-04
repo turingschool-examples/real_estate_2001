@@ -26,4 +26,9 @@ class House
     end
   end
 
+  def area
+    room_areas = rooms.map { |room| room.area }
+    room_areas.sum
+  end
+
 end
