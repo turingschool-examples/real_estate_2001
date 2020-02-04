@@ -14,12 +14,11 @@ class HouseTest < Minitest::Test
     assert_equal [], house.rooms
   end
 
-  # def test_it_can_return_details
-  #   skip
-  #   house = House.new("$400000", "123 sugar lane")
-  #
-  #   assert_equal {"price" => 400000, "address" => "123 sugar lane"}, house.details
-  # end
+  def test_it_can_return_details
+    house = House.new("$400000", "123 sugar lane")
+
+    assert_equal {"price"=>400000, "address"=>"123 sugar lane"}, house.details
+  end
 
   def test_it_can_have_rooms
     house = House.new("$400000", "123 sugar lane")
@@ -62,6 +61,7 @@ class HouseTest < Minitest::Test
 
     assert_equal [room_1, room_2], house.rooms_from_category(:bedroom)
     assert_equal [room_4], house.rooms_from_category(:basement)
+    assert_equal [room_3], house.rooms_from_category(:living_room)
   end
 
   def test_it_can_return_house_area
