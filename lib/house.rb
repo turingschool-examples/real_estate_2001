@@ -18,4 +18,8 @@ class House
   def above_market_average?
     price > 500000 ? true : false
   end
+
+  def rooms_from_category(category)
+    @rooms.select {|room| room.category == category}
+  end
 end
