@@ -41,4 +41,16 @@ class House
       room.area
     end
   end
+
+  def rooms_by_category
+    room_categories = []
+    @rooms.each {|room| room_categories << room.category}
+    unique_room_categories = room_categories.uniq
+
+    rooms_by_category = {}
+    unique_room_categories.each do |room_cat|
+      rooms_by_category[room_cat] = @rooms.find_all{|room| room.category == room_cat}
+    end
+    rooms_by_category
+  end
 end
