@@ -6,4 +6,8 @@ class House
     @address = address
     @rooms = []
   end
+
+  def add_room(room_object)
+    @rooms << room_object
+  end
 end
