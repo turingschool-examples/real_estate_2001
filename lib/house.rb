@@ -13,4 +13,13 @@ class House
     @rooms << room_parameter
   end
 
+  def above_market_average?
+    @market_average = 500000
+      if @price > @market_average
+        true
+      else
+        false
+      end
+    end
+
 end
