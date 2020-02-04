@@ -2,12 +2,10 @@ class House
   attr_reader :price, :address, :rooms
 
   def initialize(price, address)
-    @attributes = ()
     @price = price
     @address = address
     @rooms = []
     @above_market_price = "$500,000"
-    @details = Hash.new
   end
 
   def add_room(room)
@@ -35,7 +33,22 @@ class House
     key_values.to_h
   end
 
-  
+  def price_per_square_foot
+    (@price.delete("$").to_i / area.to_f).round(2)
+  end
+
+  def rooms_sorted_by_area
+    @rooms.sort_by {|room| room.area}.reverse
+  end
+
+  def rooms_sorted_by_category
+    @rooms.group_by {|room| room.category}
+  end
+
+
+
+
+
 
 
 

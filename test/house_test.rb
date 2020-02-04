@@ -3,7 +3,6 @@ require 'minitest/pride'
 require './lib/room'
 require './lib/house'
 
-
 class HouseTest < Minitest::Test
 
   def setup
@@ -61,5 +60,34 @@ class HouseTest < Minitest::Test
   def test_house_can_list_details
     expected = {"price" => 400000, "address" => "123 sugar lane"}
     assert_equal expected, @house.details(400000, "123 sugar lane")
+  end
+
+  def test_house_can_calculate_price_per_square_foot
+    @house.add_room(@room_4)
+    @house.add_room(@room_1)
+    @house.add_room(@room_2)
+    @house.add_room(@room_3)
+    assert_equal 210.53, @house.price_per_square_foot
+  end
+
+  def test_rooms_can_be_sorted_by_area
+    @house.add_room(@room_4)
+    @house.add_room(@room_1)
+    @house.add_room(@room_2)
+    @house.add_room(@room_3)
+
+    expected = [@room_4, @room_3, @room_2, @room_1]
+    assert_equal expected, @house.rooms_sorted_by_area
+  end
+
+  def test_rooms_can_be_sorted_by_category
+
+    @house.add_room(@room_4)
+    @house.add_room(@room_1)
+    @house.add_room(@room_2)
+    @house.add_room(@room_3)
+
+    expected = {:bedroom=>[@room_1, @room_2], :living_room=>[@room_3], :basement=> [@room_4]}
+    assert_equal expected, @house.rooms_sorted_by_category
   end
 end
