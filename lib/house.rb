@@ -44,4 +44,13 @@ class House
   def price_per_square_foot
     (price / area .to_f).round(2)
   end
+
+  def rooms_sorted_by_area
+    area_by_room = rooms.map do |room|
+      room.area
+    end
+    area_by_room.max_by do |area|
+      area.size
+    end
+  end
 end
