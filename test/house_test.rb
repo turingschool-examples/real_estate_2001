@@ -76,6 +76,12 @@ class HouseTest < Minitest::Test
 
     assert_equal 1900, house.area
   end
+
+  def test_it_can_return_details_in_a_hash
+    house = House.new("$400000", "123 sugar lane")
+
+    assert_equal {"price" => 400000, "address" => "123 sugar lane"}, house.details
+  end
 end
 
 # pry(main)> house.details
