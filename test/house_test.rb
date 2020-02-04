@@ -7,6 +7,7 @@ class RoomTest < Minitest::Test
 
   def setup
     @house = House.new("$400000", "123 sugar lane")
+    # require "pry"; binding.pry
   end
 
   def test_it_exists
