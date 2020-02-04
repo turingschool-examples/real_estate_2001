@@ -42,4 +42,13 @@ class House
     end
     own_area.keys.sort_by { |value| own_area[value] }.reverse
   end
+
+  #I keep getting basement first?
+  def rooms_by_category
+    sorted_rooms = {}
+    rooms.each do |room|
+      sorted_rooms[room.category] = [room]
+    end
+    sorted_rooms
+  end
 end
