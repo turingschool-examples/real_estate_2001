@@ -1,3 +1,8 @@
 class House
+  attr_reader :price, :address
 
-end 
+  def initialize(price, address)
+    @price = price.gsub(/[^0-9]/, "").to_i
+    @address = address
+  end
+end
