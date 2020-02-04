@@ -42,4 +42,9 @@ class House
     (price.to_f / area.to_f).round(2)
   end
 
+  def rooms_sorted_by_area
+    room_areas = (rooms.map { |room| room.area }).sort.reverse
+    require "Pry"; binding.pry
+  end
+
 end
