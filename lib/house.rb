@@ -34,10 +34,9 @@ class House
     (@price / area.to_f).round(2)
   end
 
-  # def rooms_sorted_by_area
-  #   require 'pry'; binding.pry
-  #   @rooms.each { |room| room.area }.sort { |low, high| high <=> low }
-  # end
+  def rooms_sorted_by_area
+    @rooms.sort_by { |room| room.area }.reverse
+  end
 
   def rooms_by_category
     rooms_hash = {}

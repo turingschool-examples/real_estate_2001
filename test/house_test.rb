@@ -62,17 +62,15 @@ class HouseTest < MiniTest::Test
     assert_equal 210.53, @house.price_per_square_foot
   end
 
-  # def test_it_can_get_rooms_sorted_by_area
-  #   @house.add_room(@room1)
-  #   @house.add_room(@room2)
-  #   @house.add_room(@room3)
-  #   @house.add_room(@room4)
-  #   rooms_array = [@room4, @room3, @room2, @room1,]
+  def test_it_can_get_rooms_sorted_by_area
+    @house.add_room(@room1)
+    @house.add_room(@room2)
+    @house.add_room(@room3)
+    @house.add_room(@room4)
+    rooms_array = [@room4, @room3, @room2, @room1]
 
-  #   assert @house.rooms_sorted_by_area
-  #   require 'pry'; binding.pry
-  #   assert_equal rooms_array, @house.rooms_sorted_by_area
-  # end
+    assert_equal rooms_array, @house.rooms_sorted_by_area
+  end
 
   def test_it_can_get_rooms_by_category_hash
     @house.add_room(@room1)
