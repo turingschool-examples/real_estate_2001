@@ -79,7 +79,7 @@ class HouseTest < Minitest::Test
     @house.add_room(@room_3)
     @house.add_room(@room_4)
 
-    assert_equal [@room_1, @room_2, @room_3, @room_4], @house.rooms_sorted_by_area
+    assert_equal [@room_4, @room_3, @room_2, @room_1], @house.rooms_sorted_by_area
   end
 
   def test_it_can_return_a_hash_of_rooms_by_category
@@ -90,7 +90,7 @@ class HouseTest < Minitest::Test
 
     rooms_by_category = {:bedroom=>[@room_1, @room_2], :living_room=>[@room_3], :basement=>[@room_4]}
     assert_equal rooms_by_category, @house.rooms_by_category
-    assert_equal Hash, @house.rooms_by_category.class 
+    assert_equal Hash, @house.rooms_by_category.class
   end
 
 end
