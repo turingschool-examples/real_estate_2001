@@ -22,4 +22,10 @@ class House
   def rooms_from_category(category)
     @rooms.select {|room| room.category == category}
   end
+
+  def area
+    total_area = 0
+    @rooms.each {|room| total_area += room.area}
+    total_area
+  end
 end
