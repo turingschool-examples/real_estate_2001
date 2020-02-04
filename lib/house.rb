@@ -9,4 +9,8 @@ class House
   def add_room(room)
     @rooms << room
   end
+
+  def above_market_average?
+    @price.tr('$', '').to_i >= 500000
+  end
 end
