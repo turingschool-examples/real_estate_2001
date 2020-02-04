@@ -46,4 +46,5 @@ class House
       "address" => @address,
     }
   end
+
 end
