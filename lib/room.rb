@@ -19,4 +19,8 @@ class Room
     @is_painted = true
   end
 
+  def area
+    @length * @width
+  end
+
 end
