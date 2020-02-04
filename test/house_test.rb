@@ -11,6 +11,7 @@ class HouseTest < Minitest::Test
   end
 
 
+end
 
 
 #  pry(main)> house = House.new("$400000", "123 sugar lane")
@@ -37,4 +38,3 @@ class HouseTest < Minitest::Test
 
 #  pry(main)> house.rooms
   #=> [#<Room:0x00007fccd29b5720...>, #<Room:0x00007fccd2985f48...>]
-  ```
