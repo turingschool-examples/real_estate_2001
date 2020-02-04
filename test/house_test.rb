@@ -10,6 +10,13 @@ class HouseTest < Minitest::Test
     assert_instance_of House, house
   end
 
+  def test_rooms_starts_as_empty_array
+    house = House.new("$400000", "123 sugar lane")
+    house.rooms
+    
+    assert_equal [], house.rooms
+  end
+
 
 
 
