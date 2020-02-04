@@ -24,12 +24,20 @@ class House
 
   def rooms_from_category(room_category_parameter)
     @rooms_in_category = []
-    rooms .each do |room|
-      if room.category == room_category_parameter
-        @rooms_in_category << room
+      rooms .each do |room|
+        if room.category == room_category_parameter
+          @rooms_in_category << room
+        end
       end
-    end
-    @rooms_in_category 
+    @rooms_in_category
+  end
+
+  def area
+    @total_area = 0
+      rooms .each do |room|
+        @total_area += room.area
+      end
+    @total_area
   end
 
 end
