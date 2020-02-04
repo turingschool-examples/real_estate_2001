@@ -6,6 +6,7 @@ class Room
     @category = category
     @length = length
     @width = width
+    @paint = nil
   end
 
   def area
@@ -13,16 +14,14 @@ class Room
   end
 
   def is_painted?
+    if @paint == nil
+      false
+    else
+      true
+    end
+  end
 
+  def paint
+    @paint = true
   end
 end
-
-
-#
-# pry(main)> room.is_painted?
-# #=> false
-#
-# pry(main)> room.paint
-#
-# pry(main)> room.is_painted?
-# #=> true
