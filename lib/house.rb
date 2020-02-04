@@ -20,7 +20,7 @@ class House
   end
 
   def area
-    @rooms.map { |room| room.length * room.width }.sum
+    @rooms.map { |room| room.area }.sum
   end
 
   def details
@@ -28,5 +28,26 @@ class House
     details['price'] = @price
     details['address'] = @address
     details
+  end
+
+  def price_per_square_foot
+    (@price / area.to_f).round(2)
+  end
+
+  # def rooms_sorted_by_area
+  #   require 'pry'; binding.pry
+  #   @rooms.each { |room| room.area }.sort { |low, high| high <=> low }
+  # end
+
+  def rooms_by_category
+    rooms_hash = {}
+    @rooms.each do |room|
+      if !rooms_hash.key?(room.category)
+        rooms_hash[room.category] = [room]
+      else
+        rooms_hash[room.category] << room
+      end
+    end
+    rooms_hash
   end
 end
