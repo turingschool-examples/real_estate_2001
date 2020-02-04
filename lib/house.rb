@@ -12,6 +12,6 @@ class House
   end
 
   def above_market_average?
-    @price > "$500000" ? true : false
+    @price.to_i > 500000 ? true : false
   end
 end
