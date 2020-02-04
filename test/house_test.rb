@@ -26,6 +26,14 @@ class HouseTest < Minitest::Test
   def test_it_knows_it_its_above_market_range
 
     assert_equal false, @house.above_market_range?
+
+    house_2 = House.new("$500000", "145 dog ave")
+
+    assert_equal false, house_2.above_market_range?
+
+    house_3 = House.new("$500001", "234 cat st")
+
+    assert house_3.above_market_range?
   end
 
 end
