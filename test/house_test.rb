@@ -34,7 +34,6 @@ class HouseTest < Minitest::Test
     house1 = House.new("$400000", "123 sugar lane")
     house2 = House.new("$600000", "123 sesame street")
 
-
     assert_equal false, house1.above_market_average?
     assert_equal true, house2.above_market_average?
   end
@@ -90,9 +89,4 @@ class HouseTest < Minitest::Test
 
     assert_equal expected_details, house.details
   end
-
-
 end
-
-# pry(main)> house.details
-# #=> {"price" => 400000, "address" => "123 sugar lane"}
