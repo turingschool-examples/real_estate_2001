@@ -17,7 +17,7 @@ class House
   end
 
   def rooms_from_category(category)
-    category_rooms = @rooms.select do |room|
+    @rooms.select do |room|
       room.category == category
     end
   end
