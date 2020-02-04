@@ -19,4 +19,19 @@ class House
       false
     end
   end
+
+  def rooms_from_category(category_parameter)
+    array_of_rooms_from_category = []
+    @rooms.each do |room|
+      if room.category == category_parameter
+        array_of_rooms_from_category << room
+      end
+    end
+    array_of_rooms_from_category
+  end
+
+
+
+
+
 end
