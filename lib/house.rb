@@ -4,6 +4,7 @@ class House
     @price = price
     @address = address
     @rooms = []
+    @market_average = 500000
   end
 
   def price
@@ -13,5 +14,12 @@ class House
   def add_room(room)
     @rooms << room
   end
+
+  def above_market_average?
+    return true if price > @market_average
+      false
+  end
+
+  def rooms_from_category(category)
 
 end
