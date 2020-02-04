@@ -17,27 +17,16 @@ class RoomTest < Minitest::Test
     assert_equal "123 sugar lane",house.address
   end
 
-  def rooms_can_be_added
+  def test_rooms_can_be_added
     house = House.new("$400000", "123 sugar lane")
+    room_1 = Room.new(:bedroom, 10, '13')
+    room_2 = Room.new(:bedroom, 11, '15')
 
     assert_equal [], house.rooms
+
+    house.add_room(room_1)
+    house.add_room(room_2)
+    assert_equal [room_1, room_2], house.rooms
   end
 
-
 end
-
-#house.rooms
-#=> []
-
-#room_1 = Room.new(:bedroom, 10, '13')
-#=> #<Room:0x00007fccd29b5720...>
-
-#room_2 = Room.new(:bedroom, 11, '15')
-#=> #<Room:0x00007fccd2985f48...>
-
-#house.add_room(room_1)
-
-#house.add_room(room_2)
-
-#house.rooms
-#=> [#<Room:0x00007fccd29b5720...>, #<Room:0x00007fccd2985f48...>]
