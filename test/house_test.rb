@@ -25,4 +25,14 @@ class HouseTest < Minitest::Test
     assert_equal house.rooms, []
   end
 
+  def test_can_we_add_rooms
+    house = House.new("$400000", "123 sugar lane")
+    room_1 = Room.new(:bedroom, 10, '13')
+    room_2 = Room.new(:bedroom, 11, '15')
+    house.add_room(room_1)
+    house.add_room(room_2)
+    assert_equal room_1, house.rooms[0]
+    assert_equal room_2, house.rooms[1]
+  end
+
 end
