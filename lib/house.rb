@@ -37,5 +37,21 @@ class House
     (@price / area.to_f).round(2)
   end
 
+  def rooms_sorted_by_area
+    (rooms.sort_by {|room| room.area}).reverse
+  end
+
+  def rooms_by_category
+    #still trying to figure this out. Almost there....
+    list_of_categories = nil
+    rooms.each do |room|
+      list_of_categories << room.category
+    end
+    list_of_categories.uniq!
+    list_of_rooms_by_category = {}
+    list_of_categories.each do |category|
+      list_of_rooms_by_category[category] = rooms_from_category(category)
+  end
+
 
 end
