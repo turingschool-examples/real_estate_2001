@@ -31,20 +31,47 @@ class HouseTest < Minitest::Test
     assert_equal [@room_1], @house.add_room(@room_1)
     @room_2 = Room.new(:bedroom, 11, '15')
     assert_equal [@room_1, @room_2], @house.add_room(@room_2)
-    assert_equal [@room_1, @room_2], @house.rooms 
+    assert_equal [@room_1, @room_2], @house.rooms
   end
 
-  #assert_equal [@room_1, @room_2], @house.rooms
+  def test_it_is_above_market_average
+    assert_equal false, @house.above_market_average?
+  end
+
+  #house.above_market_average?
+  #=> false
+
+  #room_1 = Room.new(:bedroom, 10, '13')
+  #=> #<Room:0x00007fccd29b5720...>
+
+  #room_2 = Room.new(:bedroom, 11, '15')
+  #=> #<Room:0x00007fccd2985f48...>
+
+  #room_3 = Room.new(:living_room, 25, '15')
+  #=> #<Room:0x00007fccd383c2d0...>
+
+  #room_4 = Room.new(:basement, 30, '41')
+  #=> #<Room:0x00007fccd297dc30...>
+
+  #house.add_room(room_1)
+
+  #house.add_room(room_2)
+
+  #house.add_room(room_3)
+
+  #house.add_room(room_4)
+
+  #house.rooms_from_category(:bedroom)
+  #=> [#<Room:0x00007fccd29b5720...>, #<Room:0x00007fccd2985f48...>]
+
+  #house.rooms_from_category(:basement)
+  #=> [#<Room:0x00007fccd297dc30...>]
+
+  #house.area
+  #=> 1900
+
+  #house.details
+  #=> {"price" => 400000, "address" => "123 sugar lane"}
+
 
 end
-
-
-
-
-
-#house.add_room(room_1)
-
-#house.add_room(room_2)
-
-#house.rooms
-#=> [#<Room:0x00007fccd29b5720...>, #<Room:0x00007fccd2985f48...>]
