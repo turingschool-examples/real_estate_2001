@@ -55,4 +55,11 @@ class House
     end
     rooms_sorted
   end
+
+  def rooms_by_category
+    # iterate through rooms and if they are in the same category put in the same array
+    # if in a different category put in a seperate array
+    # ex:
+    # {:bedroom=>[#<Room:0x00007fccd29b5720...>, #<Room:0x00007fccd2985f48...>]}
+  end
 end

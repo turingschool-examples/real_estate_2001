@@ -119,4 +119,22 @@ class HouseTest < Minitest::Test
     largest_to_smallest_room = [room4, room3, room2, room1]
     assert_equal largest_to_smallest_room, house.rooms_sorted_by_area
   end
+
+  def test_rooms_by_category
+    skip
+    house = House.new("$400000", "123 sugar lane")
+
+    room1 = Room.new(:bedroom, 10, '13')
+    room2 = Room.new(:bedroom, 11, '15')
+    room3 = Room.new(:living_room, 25, '15')
+    room4 = Room.new(:basement, 30, '41')
+
+    house.add_room(room1)
+    house.add_room(room2)
+    house.add_room(room3)
+    house.add_room(room4)
+
+    # require "pry"; binding.pry
+    assert_equal [], house.rooms_by_category
+  end
 end
