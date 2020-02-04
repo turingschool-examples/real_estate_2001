@@ -18,15 +18,20 @@ class HouseTest < Minitest::Test
   end
 
   def test_it_has_an_address
-
+    skip
     house = House.new("$400000", "123 sugar lane")
     assert_equal "123 sugar lane", house.address
   end
+
+  def test_it_has_rooms
+
+    house = House.new("$400000", "123 sugar lane")
+    assert_equal [], house.rooms
+  end
+
+
 end
 
-
-#  pry(main)> house.address
-  #=> "123 sugar lane"
 
 #  pry(main)> house.rooms
   #=> []
