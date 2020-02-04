@@ -30,15 +30,11 @@ class House
   end
 
   def area
-    @rooms.each do |room|
-      @total_area += room.area
-    end
-    @total_area
+    @rooms.sum {|room| room.area}
   end
 
   def price_per_square_foot
-    area
-    (@price / @total_area.to_f).round(2)
+    (@price / area.to_f).round(2)
   end
 
   def rooms_sorted_by_area
@@ -46,6 +42,8 @@ class House
   end
 
   def rooms_by_category
-    @rooms.sort_by {|room| [:category, room.category]}
+    @rooms.sort_by {|key, value|}.each do |room|
+      room.category
+    end
   end
 end
