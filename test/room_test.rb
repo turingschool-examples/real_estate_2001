@@ -21,14 +21,13 @@ class RoomTest < Minitest::Test
     assert_equal 130, room1.area
     assert_equal 180, room2.area
   end
-end
 
-#pry(main)> room.category
-#=> :bedroom
+  def test_room_is_painted
+    room1 = Room.new(:bedroom, 10, '13')
+    assert_equal false, room.is_painted?
+  end
 
-#pry(main)> room.area
-#=> 130
-
+end     
 #pry(main)> room.is_painted?
 #=> false
 
