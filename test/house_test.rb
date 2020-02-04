@@ -9,6 +9,8 @@ class HouseTest < MiniTest::Test
     @house = House.new("$400000", "123 sugar lane")
     @room_1 = Room.new(:bedroom, 10, '13')
     @room_2 = Room.new(:bedroom, 11, '15')
+    @room_3 = Room.new(:living_room, 25, '15')
+    @room_4 = Room.new(:basement, 30, '41')
   end
 
   def test_houses_exist
@@ -36,31 +38,16 @@ class HouseTest < MiniTest::Test
   def test_house_is_above_market_average_if_worth_more_than_500000
     assert_equal false, @house.above_market_average?
   end
+
+  def test_rooms_can_retrieved_by_category
+    @house.add_room(@room_1)
+    @house.add_room(@room_2)
+    @house.add_room(@room_3)
+    @house.add_room(@room_4)
+    assert_equal [@room_1, @room_2], @house.rooms_from_category(:bedroom)
+  end
 end
 
-# pry(main)> house.above_market_average?
-# #=> false
-#
-# pry(main)> room_1 = Room.new(:bedroom, 10, '13')
-# #=> #<Room:0x00007fccd29b5720...>
-#
-# pry(main)> room_2 = Room.new(:bedroom, 11, '15')
-# #=> #<Room:0x00007fccd2985f48...>
-#
-# pry(main)> room_3 = Room.new(:living_room, 25, '15')
-# #=> #<Room:0x00007fccd383c2d0...>
-#
-# pry(main)> room_4 = Room.new(:basement, 30, '41')
-# #=> #<Room:0x00007fccd297dc30...>
-#
-# pry(main)> house.add_room(room_1)
-#
-# pry(main)> house.add_room(room_2)
-#
-# pry(main)> house.add_room(room_3)
-#
-# pry(main)> house.add_room(room_4)
-#
 # pry(main)> house.rooms_from_category(:bedroom)
 # #=> [#<Room:0x00007fccd29b5720...>, #<Room:0x00007fccd2985f48...>]
 #
