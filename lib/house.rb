@@ -1,3 +1,5 @@
+
+
 class House
   attr_reader :price, :address, :rooms
     def initialize(price, address)
@@ -26,5 +28,21 @@ class House
           rooms_from_category << room
         end
     end
+
+
+    def area
+     total_area = 0
+     rooms.each do |room|
+       total_area += room.area
+     end
+     total_area
+   end
+
+
+  def details
+    {"price"=>@price, "address"=>@address}
   end
+end
+
+
 end
