@@ -22,4 +22,14 @@ class House
       end
     end
 
+  def rooms_from_category(room_category_parameter)
+    @rooms_in_category = []
+    rooms .each do |room|
+      if room.category == room_category_parameter
+        @rooms_in_category << room
+      end
+    end
+    @rooms_in_category 
+  end
+
 end
