@@ -1,6 +1,8 @@
+require 'minitest'
 require 'minitest/autorun'
 require 'minitest/pride'
 require './lib/room'
+
 
 class RoomTest < Minitest::Test
   def test_it_exists
@@ -19,4 +21,6 @@ class RoomTest < Minitest::Test
     assert_equal 130, room1.area
     assert_equal 180, room2.area
   end
+
+
 end
