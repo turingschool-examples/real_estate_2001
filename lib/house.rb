@@ -28,6 +28,7 @@ class House
   def area
     @rooms.sum do |room|
       room.area
+      require "pry"; binding.pry
     end
   end
 
