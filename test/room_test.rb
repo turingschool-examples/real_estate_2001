@@ -19,4 +19,10 @@ class RoomTest < Minitest::Test
     assert_equal 130, room1.area
     assert_equal 180, room2.area
   end
+
+  def test_can_test_if_room_is_painted
+    room = Room.new(:kitchen, 10, '9')
+
+    assert_equal false, room.is_painted?
+  end
 end
