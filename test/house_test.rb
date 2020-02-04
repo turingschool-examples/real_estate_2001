@@ -17,12 +17,13 @@ class HouseTest < Minitest::Test
     assert_equal 400000, house2.price
     assert_equal 400000, house3.price
   end
+
+  def test_it_can_return_address
+    house = House.new("$400000", "123 sugar lane")
+    assert_equal "123 sugar lane", house.address
+  end
 end
 
-
-# pry(main)> house.price
-# #=> 400000
-#
 # pry(main)> house.address
 # #=> "123 sugar lane"
 #
