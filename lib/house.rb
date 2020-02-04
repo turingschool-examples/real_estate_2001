@@ -40,4 +40,8 @@ class House
     home_attributes["address"] = address
     home_attributes
   end
+
+  def price_per_square_foot
+    
+  end
 end

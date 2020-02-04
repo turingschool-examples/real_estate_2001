@@ -63,4 +63,29 @@ class HouseTest < MiniTest::Test
     @house.add_room(@room_4)
     assert_equal ({"price" => 400000, "address" => "123 sugar lane"}), @house.details
   end
+
+  def test_price_per_square_foot_can_be_retrieved
+    @house.add_room(@room_1)
+    @house.add_room(@room_2)
+    @house.add_room(@room_3)
+    @house.add_room(@room_4)
+    assert_equal 210.53, @house.price_per_square_foot
+  end
 end
+# pry(main)> house.add_room(room_4)
+#
+# pry(main)> house.add_room(room_1)
+#
+# pry(main)> house.add_room(room_3)
+#
+# pry(main)> house.add_room(room_2)
+#
+# pry(main)> house.price_per_square_foot
+# #=> 210.53
+#
+# pry(main)> house.rooms_sorted_by_area
+# #=> [#<Room:0x00007fccd297dc30...>, #<Room:0x00007fccd383c2d0...>, #<Room:0x00007fccd2985f48...>, #<Room:0x00007fccd29b5720...>]
+#
+# pry(main)> house.rooms_by_category
+# #=> {:bedroom=>[#<Room:0x00007fccd29b5720...>, #<Room:0x00007fccd2985f48...>], :living_room=> [#<Room:0x00007fccd383c2d0...>], :basement=> [#<Room:0x00007fccd297dc30...>]}
+# ```
