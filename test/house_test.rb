@@ -13,4 +13,8 @@ class RoomTest < Minitest::Test
     assert_instance_of House, @house
   end
 
+  def test_it_has_a_price
+    assert_equal 400000, @house.price
+  end
+
 end
