@@ -66,6 +66,9 @@ class HouseTest < Minitest::Test
   def test_it_has_area
     house = House.new("$400000", "123 sugar lane")
 
+    assert_equal 0, house.area
+
+
     room1 = Room.new(:bedroom, 10, '13')
     room2 = Room.new(:bedroom, 11, '15')
     room3 = Room.new(:living_room, 25, '15')
