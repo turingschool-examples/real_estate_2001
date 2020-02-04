@@ -11,7 +11,15 @@ class Room
     @length * @width.to_i
   end
 
+
+  def paint
+    @length 
+  end
+
+
   def is_painted?
-     = false
+     if paint == 0
+
+    end
   end
 end
