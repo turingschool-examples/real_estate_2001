@@ -30,7 +30,13 @@ class House
     array_of_rooms_from_category
   end
 
-
+  def area
+    area_sum = 0
+    @rooms.each do |room|
+      area_sum = area_sum + room.area
+    end
+    area_sum
+  end
 
 
 
