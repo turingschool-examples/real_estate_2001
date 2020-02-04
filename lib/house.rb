@@ -1,16 +1,23 @@
+
 class House
 
-  attr_reader :address, :price, :rooms, :details
+  attr_reader :address, :price, :rooms, :details, :rooms_by_category
 
   def initialize(price_parameter, address_parameter)
     @price = price_parameter.delete_prefix('$').to_i
     @address = address_parameter
     @rooms = []
     @details = {"price" => @price, "address" => @address}
+    @rooms_by_category = {}
   end
 
   def add_room(room)
     @rooms << room
+    if @rooms_by_category.key?(room.category)
+      @rooms_by_category[room.category] << room
+    else
+      @rooms_by_category[room.category] = [room]
+    end
   end
 
   def above_market_average?
