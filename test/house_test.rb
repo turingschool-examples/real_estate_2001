@@ -82,7 +82,41 @@ class HouseTest < Minitest::Test
   def test_it_has_details
     house = House.new("$400000", "123 sugar lane")
     details = {"price" => 400000, "address" => "123 sugar lane"}
-    
+
     assert_equal details, house.details
+  end
+
+  def test_price_per_square_foot
+    house = House.new("$400000", "123 sugar lane")
+    assert_equal 0, house.price_per_square_foot
+
+    room1 = Room.new(:bedroom, 10, '13')
+    room2 = Room.new(:bedroom, 11, '15')
+    room3 = Room.new(:living_room, 25, '15')
+    room4 = Room.new(:basement, 30, '41')
+
+    house.add_room(room1)
+    house.add_room(room2)
+    house.add_room(room3)
+    house.add_room(room4)
+
+    assert_equal 210.53, house.price_per_square_foot
+  end
+
+  def test_sorted_by_area
+    house = House.new("$400000", "123 sugar lane")
+
+    room1 = Room.new(:bedroom, 10, '13')
+    room2 = Room.new(:bedroom, 11, '15')
+    room3 = Room.new(:living_room, 25, '15')
+    room4 = Room.new(:basement, 30, '41')
+
+    house.add_room(room1)
+    house.add_room(room2)
+    house.add_room(room3)
+    house.add_room(room4)
+
+    largest_to_smallest_room = [room4, room3, room2, room1]
+    assert_equal largest_to_smallest_room, house.rooms_sorted_by_area
   end
 end
