@@ -44,13 +44,4 @@ class House
   def rooms_sorted_by_category
     @rooms.group_by {|room| room.category}
   end
-
-
-
-
-
-
-
-
-
 end
