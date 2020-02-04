@@ -13,9 +13,7 @@ class House
   end
 
   def above_market_average?
-    house_price = @price.chars.each do |char|
-      char.to_i
-    end
+    house_price = @price.chars.map { |char| char.to_i }
     house_price.join.to_i > 500000
   end
 
@@ -25,6 +23,14 @@ class House
 
   def area
     @rooms.map { |room| room.area }.sum
+  end
+
+  def details
+    house_price = @price.chars.map { |char| char.to_i }
+    {
+    "price" => house_price.join.to_i,
+    "address" => @address
+    }
   end
 
 end
