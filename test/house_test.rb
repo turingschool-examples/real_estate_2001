@@ -4,6 +4,7 @@ require './lib/house'
 require './lib/room'
 
 class HouseTest < Minitest::Test
+  
   def test_it_exists
     house = House.new("$400000", "123 sugar lane")
 
@@ -75,10 +76,12 @@ class HouseTest < Minitest::Test
 
     assert_equal 1900, house.area
   end
-end
 
-  # def test_it_can_return_a_hash_with_house_details
-  #   house = House.new("$400000", "123 sugar lane")
-  #
-  #   assert_equal ({}), house.details
-  # end
+  def test_it_can_return_a_hash_with_house_details
+    house = House.new("$400000", "123 sugar lane")
+    house_details = {"price" => 400000, "address" => "123 sugar lane"}
+
+    assert_equal house_details, house.details
+  end
+
+end

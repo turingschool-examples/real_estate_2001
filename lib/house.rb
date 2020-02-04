@@ -5,6 +5,7 @@ class House
     @price = price.gsub("$", "").to_i
     @address = address
     @rooms = []
+    @house_details = {}
   end
 
   def rooms
@@ -28,9 +29,13 @@ class House
   def area
     @rooms.sum do |room|
       room.area
-      require "pry"; binding.pry
     end
   end
 
+  def details
+    @house_details["price"] = @price
+    @house_details["address"] = @address
+    @house_details
+  end
 
 end
