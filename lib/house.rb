@@ -1,12 +1,12 @@
 class House
-  attr_reader :cost, :address
+  attr_reader :address
 
-  def initialize(cost, address)
-    @cost = cost
-    @address = address
+  def initialize(price_paramater, address_parameter)
+    @price = price_paramater
+    @address = address_parameter
   end
 
-  def get_cost
-    @cost.gsub("$", '').to_i
+  def price
+    @price.gsub("$", '').to_i
   end
 end
