@@ -55,8 +55,11 @@ class RoomTest < Minitest::Test
     @house.add_room(@room_2)
     @house.add_room(@room_3)
     @house.add_room(@room_4)
-    require "pry"; binding.pry
     assert_equal 1900, @house.area
+  end
+
+  def test_it_has_details
+    assert_equal ({"price" => 400000, "address" => "123 sugar lane"}), @house.details
   end
 
 end
