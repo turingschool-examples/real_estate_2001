@@ -10,6 +10,7 @@ class HouseTest < Minitest::Test
 
     assert_instance_of House, @house
     assert_equal 400000, @house.price
+    assert_equal [], @house.rooms
     assert_equal "123 sugar lane", @house.address
   end
 
