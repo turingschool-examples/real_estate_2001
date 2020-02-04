@@ -36,7 +36,7 @@ class HouseTest < Minitest::Test
     assert_equal false, house.above_market_average?
   end
 
-  def test_if_can_sort_rooms_by_category
+  def test_if_can_show_rooms_from_category
     house = House.new("400000", "123 sugar lane")
 
     room_1 = Room.new(:bedroom, 10, '13')
@@ -49,6 +49,7 @@ class HouseTest < Minitest::Test
     house.add_room(room_3)
     house.add_room(room_4)
 
-    assert_equal 
+    assert_equal [room_1, room_2], house.rooms_from_category(:bedroom)
+  end
 
 end
