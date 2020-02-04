@@ -35,6 +35,6 @@ class HouseTest < Minitest::Test
 
     house.add_room(room1)
     house.add_room(room2)
-    assert_equal [room1, room2],house.rooms
+    assert_equal [room1, room2],house1.rooms
   end
 end
