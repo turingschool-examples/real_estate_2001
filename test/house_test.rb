@@ -38,12 +38,24 @@ class HouseTest < Minitest::Test
     assert_equal false, house1.above_market_average?
     assert_equal true, house2.above_market_average?
   end
+
+  def test_finds_rooms_from_category
+    room_1 = Room.new(:bedroom, 10, '13')
+    room_2 = Room.new(:bedroom, 11, '15')
+    room_3 = Room.new(:living_room, 25, '15')
+    room_4 = Room.new(:basement, 30, '41')
+    house = House.new("$400000", "123 sugar lane")
+
+    house.add_room(room_1)
+    house.add_room(room_2)
+    house.add_room(room_3)
+    house.add_room(room_4)
+
+    assert_equal [room_1, room_2], house.rooms_from_category(:bedroom)
+  end
 end
 
 
-# pry(main)> house.above_market_average?
-# #=> false
-#
 # pry(main)> room_1 = Room.new(:bedroom, 10, '13')
 # #=> #<Room:0x00007fccd29b5720...>
 #
