@@ -26,18 +26,9 @@ class RoomTest < Minitest::Test
     assert_equal false, @room.is_painted?
   end
 
-
-
-
-
-  # room.is_painted?
-  # #=> false
-  #
-  # room.paint
-  #
-  # room.is_painted?
-  # #=> true
-
-  #
+  def test_it_can_be_painted
+    @room.paint
+    assert_equal true, @room.is_painted?
+  end
 
 end
