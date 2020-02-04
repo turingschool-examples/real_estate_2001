@@ -8,8 +8,10 @@ class HouseTest < Minitest::Test
 
   def setup
     @house = House.new("$400000", "123 sugar lane")
-    @room1 = Room.new(:bedroom, 10, '13')
-    @room2 = Room.new(:living_room, 15, '12')
+    @room_1 = Room.new(:bedroom, 10, '13')
+    @room_2 = Room.new(:bedroom, 11, '15')
+    @room_3 = Room.new(:living_room, 25, '15')
+    @room_4 = Room.new(:basement, 30, '41')
   end
 
   def test_it_exists
@@ -29,13 +31,22 @@ class HouseTest < Minitest::Test
   end
 
   def test_it_can_add_rooms
-    @house.add_room(@room1)
-    @house.add_room(@room2)
-    assert_equal [@room1, @room2], @house.rooms
+    @house.add_room(@room_1)
+    @house.add_room(@room_2)
+    assert_equal [@room_1, @room_2], @house.rooms
   end
 
   def test_it_can_be_below_market_average
     assert_equal false, @house.above_market_average?
   end
 
+  def test_can_list_rooms_by_category
+    @house.add_room(@room_1)
+    @house.add_room(@room_2)
+    @house.add_room(@room_3)
+    @house.add_room(@room_4)
+
+    assert_equal [@room_1, @room_2], @house.rooms_from_category(:bedroom)
+
+  end
 end

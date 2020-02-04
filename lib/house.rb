@@ -18,4 +18,7 @@ class House
     self.price > 5000000
   end
 
+  def rooms_from_category(category)
+    rooms.select {|room| room.category == category}
+  end
 end
