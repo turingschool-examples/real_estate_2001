@@ -6,10 +6,11 @@ class Room
     @length = length_parameter.to_i
     @width = width_parameter.to_i
     @painted = false
+    @area = 0
   end
 
   def area
-    @length * @width
+    @area = @length * @width
   end
 
   def paint

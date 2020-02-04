@@ -33,4 +33,33 @@ class House
     details = {"price" => price, "address" => @address}
     details
   end
+
+  def price_per_square_foot
+    total_per_square_foot = 0
+    if area != 0
+      total_per_square_foot = (price / area.to_f).round(2)
+    end
+    total_per_square_foot
+  end
+
+  def rooms_sorted_by_area
+    rooms_sorted = []
+    rooms.each do |room|
+      if rooms_sorted.first == nil
+        rooms_sorted.append room
+      elsif room.area > rooms_sorted.first.area
+        rooms_sorted.prepend room
+      else
+        rooms_sorted.append room
+      end
+    end
+    rooms_sorted
+  end
+
+  def rooms_by_category
+    # iterate through rooms and if they are in the same category put in the same array
+    # if in a different category put in a seperate array
+    # ex:
+    # {:bedroom=>[#<Room:0x00007fccd29b5720...>, #<Room:0x00007fccd2985f48...>]}
+  end
 end
