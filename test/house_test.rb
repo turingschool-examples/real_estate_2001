@@ -12,16 +12,13 @@ class HouseTest < Minitest::Test
   end
 
   def test_it_has_a_price
-    
+
     house = House.new("$400000", "123 sugar lane")
-    assert_equal 40000, house.price
+    assert_equal 400000, house.price
   end
 
 end
 
-
-#  pry(main)> house.price
-  #=> 400000
 
 #  pry(main)> house.address
   #=> "123 sugar lane"
