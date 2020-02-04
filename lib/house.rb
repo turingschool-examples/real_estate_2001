@@ -1,3 +1,5 @@
+require './lib/room'
+
 class House
   attr_reader :price, :address, :rooms
 
@@ -5,6 +7,10 @@ class House
     @price = price.gsub(/\D/,'').to_i
     @address = address
     @rooms = []
+  end
+
+  def add_room(room_parameter)
+    @rooms << room_parameter
   end
 
 end
