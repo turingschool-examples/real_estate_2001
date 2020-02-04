@@ -21,15 +21,11 @@ class House
   end
 
   def rooms_from_category(category)
-    @rooms.select do |room|
-      room.category == category
-    end
+    @rooms.select {|room| room.category == category}
   end
 
   def area
-    @rooms.sum do |room|
-      room.area
-    end
+    @rooms.sum {|room| room.area}
   end
 
   def price_per_square_foot
@@ -37,15 +33,13 @@ class House
   end
 
   def rooms_sorted_by_area
-    @rooms.sort_by do |room|
-      room.area
-    end
+    @rooms.sort_by {|room| room.area}
   end
 
   def rooms_by_category
-    room_categories = []
-    @rooms.each {|room| room_categories << room.category}
-    unique_room_categories = room_categories.uniq
+    all_room_categories = []
+    @rooms.each {|room| all_room_categories << room.category}
+    unique_room_categories = all_room_categories.uniq
 
     rooms_by_category = {}
     unique_room_categories.each do |room_cat|

@@ -11,7 +11,6 @@ class RoomTest < Minitest::Test
     @room_2 = Room.new(:bedroom, 11, '15')
     @room_3 = Room.new(:living_room, 25, '15')
     @room_4 = Room.new(:basement, 30, '41')
-    # require "pry"; binding.pry
   end
 
   def test_it_exists
@@ -75,7 +74,6 @@ class RoomTest < Minitest::Test
     @house.add_room(@room_1)
     @house.add_room(@room_3)
     @house.add_room(@room_2)
-    # require "pry"; binding.pry
     assert_equal [@room_1, @room_2, @room_3, @room_4], @house.rooms_sorted_by_area
   end
 
@@ -84,7 +82,6 @@ class RoomTest < Minitest::Test
     @house.add_room(@room_1)
     @house.add_room(@room_3)
     @house.add_room(@room_2)
-
     assert_equal ({:bedroom => [@room_1, @room_2], :living_room => [@room_3], :basement => [@room_4]}), @house.rooms_by_category
   end
 
