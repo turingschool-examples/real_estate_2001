@@ -43,7 +43,7 @@ class House
 
     rooms_by_category = {}
     unique_room_categories.each do |room_cat|
-      rooms_by_category[room_cat] = @rooms.find_all{|room| room.category == room_cat}
+      rooms_by_category[room_cat] = rooms_from_category(room_cat)
     end
     rooms_by_category
   end

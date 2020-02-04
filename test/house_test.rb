@@ -82,6 +82,7 @@ class RoomTest < Minitest::Test
     @house.add_room(@room_1)
     @house.add_room(@room_3)
     @house.add_room(@room_2)
+    # require "pry"; binding.pry
     assert_equal ({:bedroom => [@room_1, @room_2], :living_room => [@room_3], :basement => [@room_4]}), @house.rooms_by_category
   end
 
