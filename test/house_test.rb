@@ -19,13 +19,17 @@ class HouseTest < Minitest::Test
   end
 
   def test_it_has_an_address
-    assert_equal "123 sugar lane", @house.address 
+    assert_equal "123 sugar lane", @house.address
   end
+
+  def test_it_initializes_with_empty_rooms_array
+    assert_equal [], @house.rooms
+  end
+
+
 end
 
 
-#house.address
-#=> "123 sugar lane"
 
 #house.rooms
 #=> []
