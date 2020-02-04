@@ -28,4 +28,8 @@ class House
     }
     details
   end
+
+  def price_per_square_foot
+    (price.delete_prefix("$").to_f / area).round(2)
+  end
 end
