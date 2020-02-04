@@ -25,4 +25,9 @@ class House
   def area
     rooms.map.sum { |room| room.area  }
   end
+
+  def details
+    { "price" => self.price, 
+      "address" => @address}
+  end
 end
