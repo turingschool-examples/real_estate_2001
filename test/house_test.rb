@@ -26,19 +26,21 @@ class HouseTest < Minitest::Test
     assert_equal [], @house.rooms
   end
 
+  def test_it_can_add_rooms_and_store_in_rooms
+    @room_1 = Room.new(:bedroom, 10, '13')
+    assert_equal [@room_1], @house.add_room(@room_1)
+    @room_2 = Room.new(:bedroom, 11, '15')
+    assert_equal [@room_1, @room_2], @house.add_room(@room_2)
+    assert_equal [@room_1, @room_2], @house.rooms 
+  end
+
+  #assert_equal [@room_1, @room_2], @house.rooms
 
 end
 
 
 
-#house.rooms
-#=> []
 
-#room_1 = Room.new(:bedroom, 10, '13')
-#=> #<Room:0x00007fccd29b5720...>
-
-#room_2 = Room.new(:bedroom, 11, '15')
-#=> #<Room:0x00007fccd2985f48...>
 
 #house.add_room(room_1)
 
