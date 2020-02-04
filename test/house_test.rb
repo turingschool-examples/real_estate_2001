@@ -50,4 +50,12 @@ class RoomTest < Minitest::Test
     assert_equal [], @house.rooms_from_category(:kitchen)
   end
 
+  def test_it_has_an_area
+    @house.add_room(@room_1)
+    @house.add_room(@room_2)
+    @house.add_room(@room_3)
+    @house.add_room(@room_4)
+    assert_equal 1900, @house.area
+  end
+
 end
