@@ -34,4 +34,12 @@ class House
   def rooms_sorted_by_area
     @rooms.sort_by {|room| room.area}
   end
+
+  def rooms_by_category
+    keys = @rooms.map(&:category).uniq
+    values = keys.map do |key|
+      @rooms.select {|room| room.category == key}
+    end
+    keys.zip(values).to_h
+  end
 end
