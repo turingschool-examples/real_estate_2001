@@ -42,11 +42,11 @@ class HouseTest < Minitest::Test
   def test_it_can_tell_whether_house_is_above_market_average
     house1 = House.new("$400000", "123 sugar lane")
 
-    assert_equal false, house.above_market_average?
+    assert_equal false, house1.above_market_average?
 
     house2 = House.new("$600000", "123 sugar lane")
 
-    assert_equal true, house.above_market_average?
+    assert_equal true, house2.above_market_average?
   end
 end
 
