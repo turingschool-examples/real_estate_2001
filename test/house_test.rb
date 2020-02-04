@@ -36,5 +36,9 @@ class HouseTest < Minitest::Test
 
     assert_equal [@room_1, @room_2], @house.rooms
   end
+  
+  def test_it_is_above_market?
 
+    assert_equal false, @house.above_market?
+  end
 end
