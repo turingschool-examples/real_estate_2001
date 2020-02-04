@@ -64,4 +64,33 @@ class HouseTest < Minitest::Test
     assert_equal ({"price" => 400000, "address" => "123 sugar lane"}), @house.details
   end
 
+  def test_it_can_calculate_price_per_square_foot
+    @house.add_room(@room_1)
+    @house.add_room(@room_2)
+    @house.add_room(@room_3)
+    @house.add_room(@room_4)
+
+    assert_equal 210.53, @house.price_per_square_foot
+  end
+
+  def test_it_can_sort_rooms_by_area
+    @house.add_room(@room_1)
+    @house.add_room(@room_2)
+    @house.add_room(@room_3)
+    @house.add_room(@room_4)
+
+    assert_equal [@room_4, @room_3, @room_2, @room_1], @house.rooms_sorted_by_area
+  end
+
+  def test_it_can_return_a_hash_of_rooms_by_category
+    @house.add_room(@room_1)
+    @house.add_room(@room_2)
+    @house.add_room(@room_3)
+    @house.add_room(@room_4)
+
+    rooms_by_category = {:bedroom=>[@room_1, @room_2], :living_room=>[@room_3], :basement=>[@room_4]}
+    assert_equal rooms_by_category, @house.rooms_by_category
+    assert_equal Hash, @house.rooms_by_category.class
+  end
+
 end
