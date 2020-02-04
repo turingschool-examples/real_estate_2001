@@ -41,6 +41,11 @@ class RoomTest < Minitest::Test
   end
 
   def test_it_has_rooms_from_category
+    @house.add_room(@room_1)
+    @house.add_room(@room_2)
+    @house.add_room(@room_3)
+    @house.add_room(@room_4)
+    require "pry"; binding.pry
     assert_equal [@room_1, @room_2], @house.rooms_from_category(:bedroom)
     assert_equal [@room_4], @house.rooms_from_category(:basement)
     assert_equal [], @house.rooms_from_category(:kitchen)
