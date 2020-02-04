@@ -35,9 +35,24 @@ class House
   end
 
   def price_per_square_foot
-    (price / area.to_f).round(2)
+    total_per_square_foot = 0
+    if area != 0
+      total_per_square_foot = (price / area.to_f).round(2)
+    end
+    total_per_square_foot
   end
 
   def rooms_sorted_by_area
+    rooms_sorted = []
+    rooms.each do |room|
+      if rooms_sorted.first == nil
+        rooms_sorted.append room
+      elsif room.area > rooms_sorted.first.area
+        rooms_sorted.prepend room
+      else
+        rooms_sorted.append room
+      end
+    end
+    rooms_sorted
   end
 end
