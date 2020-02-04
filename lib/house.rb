@@ -29,7 +29,6 @@ class House
         end
     end
 
-
     def area
      total_area = 0
      rooms.each do |room|
@@ -38,11 +37,8 @@ class House
      total_area
    end
 
-
-  def details
-    {"price"=>@price, "address"=>@address}
+    def details
+      {"price"=>@price, "address"=>@address}
+    end
   end
-end
-
-
 end
