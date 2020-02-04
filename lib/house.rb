@@ -19,4 +19,9 @@ class House
     house_price.join.to_i > 500000
   end
 
+  def rooms_from_category(category)
+    require 'pry'; binding.pry
+    rooms_from_category = @rooms.find_all { |room| room.category == category }
+  end
+
 end
