@@ -21,4 +21,8 @@ class House
   def rooms_from_category(category)
     rooms.select {|room| room.category == category}
   end
+
+  def area
+    rooms.map.sum { |room| room.area  }
+  end
 end
