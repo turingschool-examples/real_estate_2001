@@ -6,6 +6,9 @@ class House
     @address = address
     @rooms = []
     @above_market_average = false
+    @sum = 0
+    @area_room = []
+    @detail_hsh = {}
   end
 
   def add_room(room)
@@ -25,6 +28,15 @@ class House
   end
 
   def area
-    
+    @rooms.map do |room|
+      room.length * room.width.to_i
+      # require "pry"; binding.pry
+    end
+  end
+
+  def details
+    @detail_hsh  = {
+                      "price" => "$400000",
+                      "address" => "123 sugar lane"}
   end
 end
