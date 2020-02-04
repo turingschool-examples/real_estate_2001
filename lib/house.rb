@@ -14,4 +14,20 @@ class House
     @rooms << room
   end
 
+  def above_market_average?
+    self.price > 5000000
+  end
+
+  def rooms_from_category(category)
+    rooms.select {|room| room.category == category}
+  end
+
+  def area
+    rooms.map.sum { |room| room.area  }
+  end
+
+  def details
+    { "price" => self.price, 
+      "address" => @address}
+  end
 end
