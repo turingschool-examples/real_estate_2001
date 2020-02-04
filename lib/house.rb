@@ -38,4 +38,9 @@ class House
     @house_details
   end
 
+  def price_per_square_foot
+    # require "pry"; binding.pry
+     (@price.to_f / area).round(2)
+  end
+
 end
