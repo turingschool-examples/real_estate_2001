@@ -4,12 +4,13 @@ require './lib/room'
 
 class RoomTest < Minitest::Test
   def test_it_exists
+    skip
     room = Room.new(:bedroom, 10, '13')
     assert_instance_of Room, room
   end
 
   def test_it_has_a_category
-    skip
+
     room = Room.new(:bedroom, 10, '13')
     assert_equal :bedroom, room.category
   end
@@ -22,3 +23,17 @@ class RoomTest < Minitest::Test
     assert_equal 180, room2.area
   end
 end
+
+#pry(main)> room.category
+#=> :bedroom
+
+#pry(main)> room.area
+#=> 130
+
+#pry(main)> room.is_painted?
+#=> false
+
+#pry(main)> room.paint
+
+#pry(main)> room.is_painted?
+#=> true
