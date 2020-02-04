@@ -20,4 +20,12 @@ class House
     @rooms.each {|room| area = area + room.area}
     area
   end
+
+  def house_details
+    details = {
+      "price" => price,
+      "address" => address
+    }
+    details
+  end
 end

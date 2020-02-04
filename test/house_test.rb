@@ -37,4 +37,8 @@ class HouseTest < Minitest::Test
     assert_equal [@room_4], @house.rooms_from_category(:basement)
     assert_equal 1900, @house.area
   end
+
+  def test_if_can_get_house_details
+    assert_equal ({"price"=>"$400000", "address"=>"123 sugar lane"}), @house.house_details
+  end
 end
