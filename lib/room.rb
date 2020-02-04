@@ -22,4 +22,5 @@ class Room
     @painted
   end
 
+
 end
