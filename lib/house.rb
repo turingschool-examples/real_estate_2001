@@ -2,7 +2,7 @@ class House
   attr_reader :price, :address, :rooms
 
   def initialize(price, address)
-    @price = price[1..-1].to_i
+    @price = price
     @address = address
     @rooms = []
   end
@@ -12,7 +12,7 @@ class House
   end
 
   def above_market_average?
-    @price > 500000 ? true : false
+    @price[1..-1].to_i > 500000 ? true : false
   end
 
   def rooms_from_category(category)
@@ -24,6 +24,6 @@ class House
   end
 
   def details
-    {"price" => @price, "address" => @address}
+    {"price" => @price[1..-1].to_i, "address" => @address}
   end
 end
