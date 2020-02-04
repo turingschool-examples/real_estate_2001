@@ -19,4 +19,15 @@ class House
   def rooms_from_category(category)
     rooms.find_all { |room| room.category == category }
   end
+
+  def area
+    total_area = []
+    rooms.each { |room| total_area << room.area }
+    total_area.sum
+  end
+
+  def details
+    Hash.new
+    {"price" => price, "address" => address}
+  end
 end
