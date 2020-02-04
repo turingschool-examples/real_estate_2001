@@ -36,8 +36,3 @@ class RoomTest < Minitest::Test
   end
 
 end
-
-#pry(main)> room.paint
-
-#pry(main)> room.is_painted?
-#=> true
