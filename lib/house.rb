@@ -15,7 +15,7 @@ class House
     price.delete('$').to_i
   end
 
-  def above_market_price?
+  def above_market_average?
     @price > 500000
   end
 
