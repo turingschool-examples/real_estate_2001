@@ -2,18 +2,18 @@ class House
   attr_reader :price, :address, :rooms
 
   def initialize(price, address)
-    @price = price
+    @price = reformated_price(price)
     @address = address
     @rooms = []
-    @above_market_price = "$500,000"
+    @above_market_price = 500000
   end
 
   def add_room(room)
     @rooms << room
   end
 
-  def add_commas_to_price(price)
-    @price.to_s.reverse.gsub(/(\d{3})(?=\d)/, '\\1,').reverse
+  def reformated_price(price)
+    price.delete('$').to_i
   end
 
   def above_market_price?
@@ -34,7 +34,7 @@ class House
   end
 
   def price_per_square_foot
-    (@price.delete("$").to_i / area.to_f).round(2)
+    (@price / area.to_f).round(2)
   end
 
   def rooms_sorted_by_area

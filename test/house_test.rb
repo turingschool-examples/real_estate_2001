@@ -18,7 +18,7 @@ class HouseTest < Minitest::Test
   end
 
   def test_house_has_attributes
-    assert_equal "$400000", @house.price
+    assert_equal 400000, @house.price
     assert_equal "123 sugar lane", @house.address
     assert_equal ([]), @house.rooms
   end
@@ -27,10 +27,6 @@ class HouseTest < Minitest::Test
     @house.add_room(@room_1)
     @house.add_room(@room_2)
     assert_equal [@room_1, @room_2], @house.rooms
-  end
-
-  def test_price_can_be_covereted_using_commas
-    assert_equal "$400,000", @house.add_commas_to_price("$400000")
   end
 
   def test_house_is_above_or_below_market_average_price
