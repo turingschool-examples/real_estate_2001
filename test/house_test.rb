@@ -55,7 +55,7 @@ class HouseTest < Minitest::Test
 
   def test_house_can_list_details
     expected = {"price" => 400000, "address" => "123 sugar lane"}
-    assert_equal expected, @house.details(400000, "123 sugar lane")
+    assert_equal expected, @house.details
   end
 
   def test_house_can_calculate_price_per_square_foot
@@ -84,6 +84,6 @@ class HouseTest < Minitest::Test
     @house.add_room(@room_3)
 
     expected = {:bedroom=>[@room_1, @room_2], :living_room=>[@room_3], :basement=> [@room_4]}
-    assert_equal expected, @house.rooms_sorted_by_category
+    assert_equal expected, @house.rooms_by_category
   end
 end

@@ -5,7 +5,6 @@ class House
     @price = reformated_price(price)
     @address = address
     @rooms = []
-    @above_market_price = 500000
   end
 
   def add_room(room)
@@ -17,7 +16,7 @@ class House
   end
 
   def above_market_price?
-    @price > @above_market_price
+    @price > 500000
   end
 
   def rooms_from_category(category)
@@ -28,8 +27,8 @@ class House
     @rooms.sum {|room| room.area}
   end
 
-  def details(price, address)
-    key_values = ["price", price ], ["address", address]
+  def details
+    key_values = ["price", @price ], ["address", @address]
     key_values.to_h
   end
 
@@ -41,7 +40,7 @@ class House
     @rooms.sort_by {|room| room.area}.reverse
   end
 
-  def rooms_sorted_by_category
+  def rooms_by_category
     @rooms.group_by {|room| room.category}
   end
 end
