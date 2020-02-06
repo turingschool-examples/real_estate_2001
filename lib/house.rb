@@ -20,9 +20,7 @@ class House
   end
 
   def area
-    area = 0
-    @rooms.each {|room| area += room.area}
-    area.to_f
+    @rooms.sum {|room| room.area.to_f}
   end
 
   def details
