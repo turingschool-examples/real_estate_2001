@@ -2,7 +2,7 @@ class House
 
   attr_reader :price, :address, :rooms
   def initialize(price, address)
-    @price = price
+    @price = price.delete("$").to_i
     @address = address
     @rooms = []
   end
@@ -11,25 +11,41 @@ class House
     @rooms << room
   end
 
+  def above_market_average?
+    price >= 500000
+  end
+
   def rooms_from_category(room_category)
     @rooms.find_all {|room| room.category == room_category}
   end
 
   def area
     area = 0
-    @rooms.each {|room| area = area + room.area}
-    area
+    @rooms.each {|room| area += room.area}
+    area.to_f
   end
 
-  def house_details
-    details = {
+  def details
+    house_details = {
       "price" => price,
       "address" => address
     }
-    details
+    house_details
   end
 
   def price_per_square_foot
-    (price.delete_prefix("$").to_f / area).round(2)
+    (price / area).round(2)
+  end
+
+  def rooms_sorted_by_area
+    @rooms.sort_by {|room| room.area }.reverse
+  end
+
+  def rooms_sorted_by_category
+    sorted_rooms = {}
+    @rooms.each do |room|
+      sorted_rooms[room.category] = rooms_from_category(room.category)
+    end
+    sorted_rooms
   end
 end

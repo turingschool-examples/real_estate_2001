@@ -7,6 +7,7 @@ class RoomTest < Minitest::Test
     @room_1 = Room.new(:bedroom, 10, '13')
     @room_2 = Room.new(:living_room, 15, '12')
   end
+
   def test_it_exists
     assert_instance_of Room, @room_1
   end
@@ -21,7 +22,7 @@ class RoomTest < Minitest::Test
   end
 
   def test_is_painted_and_paint
-    refute @room_1.is_painted?
+    assert_equal false, @room_1.is_painted?
     @room_1.paint
     assert @room_1.is_painted?
   end
