@@ -46,11 +46,10 @@ class House
   end
 
   def rooms_sorted_by_area
-    area_by_room = rooms.map do |room|
-      room.area
-    end
-    area_by_room.max_by do |area|
-      area.size
-    end
+      rooms.sort_by {|room| room.area}.reverse
+  end
+
+  def rooms_by_category
+    rooms.group_by {|room| room.category}
   end
 end

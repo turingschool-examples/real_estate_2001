@@ -7,6 +7,7 @@ class HouseTest < MiniTest::Test
 
   def setup
     @house = House.new("$400000", "123 sugar lane")
+    @rich_house = House.new("$900000", "345 wealthy way")
     @room_1 = Room.new(:bedroom, 10, '13')
     @room_2 = Room.new(:bedroom, 11, '15')
     @room_3 = Room.new(:living_room, 25, '15')
@@ -37,6 +38,7 @@ class HouseTest < MiniTest::Test
 
   def test_house_is_above_market_average_if_worth_more_than_500000
     assert_equal false, @house.above_market_average?
+    assert_equal true, @rich_house.above_market_average?
   end
 
   def test_rooms_can_retrieved_by_category
@@ -73,15 +75,18 @@ class HouseTest < MiniTest::Test
   end
 
   def test_rooms_can_be_sorted_by_area
-    skip
     @house.add_room(@room_1)
     @house.add_room(@room_2)
     @house.add_room(@room_3)
     @house.add_room(@room_4)
     assert_equal [@room_4, @room_3, @room_2, @room_1], @house.rooms_sorted_by_area
   end
-end
 
-# pry(main)> house.rooms_by_category
-# #=> {:bedroom=>[#<Room:0x00007fccd29b5720...>, #<Room:0x00007fccd2985f48...>], :living_room=> [#<Room:0x00007fccd383c2d0...>], :basement=> [#<Room:0x00007fccd297dc30...>]}
-# ```
+  def test_rooms_can_be_sorted_by_category
+    @house.add_room(@room_1)
+    @house.add_room(@room_2)
+    @house.add_room(@room_3)
+    @house.add_room(@room_4)
+    assert_equal ({:bedroom=>[@room_1, @room_2], :living_room=>[@room_3], :basement=>[@room_4]}), @house.rooms_by_category
+  end
+end
